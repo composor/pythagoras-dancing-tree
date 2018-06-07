@@ -128,7 +128,7 @@ export class Tree extends Component {
       </svg>
     )
   }
-  componentWasCreated() {
+  componentDidMount() {
     this.element.addEventListener('mousemove', this)
     this.element.addEventListener('touchmove', this)
     document.body.addEventListener('touchcancel', this)
