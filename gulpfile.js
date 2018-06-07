@@ -13,10 +13,10 @@ const cssnano = require('gulp-cssnano');
 // Static Server & watching files:
 gulp.task('serve', ['build'], function () {
   browserSync({
-    server: './',
     port: 4040,
     server: {
-      open: false
+      open: false,
+      baseDir: './'
     }
   }).reload
 })
@@ -35,7 +35,7 @@ gulp.task('build', function () {
     .pipe(cssnano({advanced: true, aggressiveMerging: true}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./css'))
-    
+
 
   return rollup.rollup({
     input: './dev/app.js',
